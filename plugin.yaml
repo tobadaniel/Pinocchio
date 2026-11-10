@@ -1,0 +1,19 @@
+name: pinocchio
+version: 1.0.0
+manifest_version: 2
+api_version: 1
+description: The honesty layer for Hermes Agent. Pinocchio records receipts for every tool call (commands, exit codes, test runs, builds, file writes, git, deploys) and cross-examines the agent's closing claims against them, stamping each claim verified, unverified, or contradicted, and bouncing a contradicted claim back on coding turns so the agent re-runs the failing step or corrects the record. No second model, no network, deterministic.
+author: Oluwatoba Daniel
+license: MIT
+homepage: https://github.com/tobadaniel/pinocchio
+tags: [honesty, verification, receipts, middleware, reliability, trust]
+provides_tools:
+  - pinocchio_report
+  - pinocchio_receipts
+provides_hooks:
+  - post_tool_call
+  - transform_llm_output
+  - pre_verify
+config_schema:
+  bounce_on_contradiction: {type: bool, default: true, description: "On coding turns, send a contradicted closing claim back once so the agent re-runs the failing step or corrects the claim"}
+  show_unverified: {type: bool, default: true, description: "Show unverified lines in the stamp (claims with no matching receipt). Turn off to stamp only verified and contradicted claims"}

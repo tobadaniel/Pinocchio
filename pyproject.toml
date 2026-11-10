@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pinocchio"
+version = "1.0.0"
+description = "The honesty layer for Hermes Agent: closing claims cross-examined against tool-call receipts"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Oluwatoba Daniel"}]
+requires-python = ">=3.10"
+
+[tool.setuptools]
+py-modules = []
